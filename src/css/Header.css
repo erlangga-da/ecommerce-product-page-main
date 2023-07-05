@@ -1,0 +1,165 @@
+nav,.left-nav,
+ul,.right-nav, .items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    /* background-color: aqua; */
+    margin: 0px auto;
+    padding: 28px 0px;
+    max-width: 80%;
+    border-bottom: 1px solid var(--outline);
+}
+nav #menu {
+    display: none;
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    margin-right: 32px;
+}
+nav a {
+    padding-bottom: 40px;
+    text-decoration: none;
+    color: var(--grey);
+    border-bottom: 4px solid white;
+    transition: .5s;
+}
+nav a:hover {
+    color: var(--black);
+    border-bottom: 4px solid var(--main-color);
+}
+.left-nav #logo {
+    margin-right: 56px;
+}
+.right-nav #cart {
+    cursor: pointer;
+    transition: .5s;
+}
+.right-nav #cart:hover path{
+    fill: var(--black);
+}
+.right-nav #profile {
+    margin-left: 45px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: .5s;
+    cursor: pointer;
+}
+.right-nav #profile:hover {
+    border: 2px solid var(--main-color);
+}
+.ant-popover-arrow {
+    display: none !important;
+}
+
+/* cart popover */
+.ant-popover,
+.ant-popover-hidden {
+    min-width: 360px;
+}
+.checkout {
+    width: 100%;
+    margin-top: 24px;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 0px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+}
+.items {
+    margin-top: 24px;
+}
+.product {
+    display: flex;
+    align-items: center;
+}
+.items #thumbs {
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    margin-right: 16px;
+}
+#delete-cart {
+    margin-left: 18px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.items .text {
+    max-width: 190px;
+    white-space: nowrap;
+}
+.items .text p {
+    margin: 0;
+}
+.items .text #title, #price {
+    color: var(--grey);
+    font-size: 14px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#price span {
+    color: var(--black);
+    font-weight: 600;
+}
+.ant-popover-inner {
+    padding: 0px !important;
+    padding-bottom: 32px !important;
+    box-shadow: 0px 11px 79px -12px rgba(0, 0, 0, 0.1), 8px 2px 8px -13px rgba(0, 0, 0, 0.1), -8px 2px 8px -13px rgba(0, 0, 0, 0.1) !important;
+}
+.ant-popover-title {
+    margin-bottom: 0px !important;
+    font-size: 16px;
+    padding: 24px !important;
+    font-weight: 700 !important;
+    border-bottom: 1px solid var(--outline);
+}
+.ant-popover-content {
+    margin-top: 32px;
+}
+.ant-popover-inner-content {
+    padding: 0px 24px !important;
+}
+#empty-cart {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 64px;
+    color: var(--grey);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 960px) {
+    nav {
+        /* background-color: aqua; */
+        padding: 24px;
+        max-width: 100%;
+        border: none;
+    }
+    nav #menu {
+        display: block;
+        margin-right: 16px;
+    }
+    nav ul {
+        display: none;
+    }
+    .right-nav #profile {
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+    }
+}
