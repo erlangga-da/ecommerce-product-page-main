@@ -1,54 +1,109 @@
+import { Modal } from "antd";
 import React from "react";
 import "../css/Gallery.css";
-import { useState } from "react";
-
-let ActiveArr = new Array(false, false, false, false);
+import { useState, useEffect } from "react";
 
 export const Gallery = () => {
-  const [active, setActive] = useState(ActiveArr);
+  const [modal2Open, setModal2Open] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [second, setSecond] = useState(false);
+  const [third, setThird] = useState(false);
+  const [fourth, setFourth] = useState(false);
+  const [fifth, setFifth] = useState(false);
 
   const setArray = (target) => {
-    setActive(active = [false, true, false, false]);
-    console.log(active);
-    // setActive(active[target] = !active[target]);
-  }
+    setImageIndex(target);
+    if (target == 0) {
+      setActive(true, false, false, false);
+    } else if (target == 1) {
+      setActive(false, true, false, false);
+    } else if (target == 2) {
+      setActive(false, false, true, false);
+    } else if (target == 3) {
+      setActive(false, false, false, true);
+    }
+  };
+
+  const setActive = (second, third, fourth, fifth) => {
+    setSecond(second);
+    setThird(third);
+    setFourth(fourth);
+    setFifth(fifth);
+  };
+
+  useEffect(()=>{
+		setArray(0)
+	}, [])
 
   return (
-    <div className="gallery-product">
-      <img
-        onClick={() => alert("buka modal")}
-        className="first"
-        src={`http://localhost:3000/imgs/products/image-product-1.jpg`}
-        alt=""
-      />
-      <div className={`second ${ active[0] == true ?  "active" : "" }`} onClick={() => setArray(0)}>
-        <div className="overlay"></div>
+    <>
+      <ModalImage open={modal2Open} onOk={() => setModal2Open(false)} onCancel={() => setModal2Open(false)}/>
+      <div className="gallery-product">
         <img
-          src={`http://localhost:3000/imgs/products/image-product-1.jpg`}
+          onClick={() => setModal2Open(true)}
+          className="first"
+          src={`http://localhost:3000/imgs/products/image-product-${
+            imageIndex + 1
+          }.jpg`}
           alt=""
         />
+        <div
+          className={`second ${second == true ? "active" : ""}`}
+          onClick={() => setArray(0)}
+        >
+          <div className="overlay"></div>
+          <img
+            src={`http://localhost:3000/imgs/products/image-product-1.jpg`}
+            alt=""
+          />
+        </div>
+        <div
+          className={`third ${third == true ? "active" : ""}`}
+          onClick={() => setArray(1)}
+        >
+          <div className="overlay"></div>
+          <img
+            src={`http://localhost:3000/imgs/products/image-product-2.jpg`}
+            alt=""
+          />
+        </div>
+        <div
+          className={`fourth ${fourth == true ? "active" : ""}`}
+          onClick={() => setArray(2)}
+        >
+          <div className="overlay"></div>
+          <img
+            src={`http://localhost:3000/imgs/products/image-product-3.jpg`}
+            alt=""
+          />
+        </div>
+        <div
+          className={`fifth ${fifth == true ? "active" : ""}`}
+          onClick={() => setArray(3)}
+        >
+          <div className="overlay"></div>
+          <img
+            src={`http://localhost:3000/imgs/products/image-product-4.jpg`}
+            alt=""
+          />
+        </div>
       </div>
-      <div className={`third ${ active[1] == true ?  "active" : "" }`} onClick={() => setArray(1)}>
-        <div className="overlay"></div>
-        <img
-          src={`http://localhost:3000/imgs/products/image-product-2.jpg`}
-          alt=""
-        />
-      </div>
-      <div className={`fourth ${ActiveArr[2]}`} onClick={() => alert("buka modal")}>
-        <div className="overlay"></div>
-        <img
-          src={`http://localhost:3000/imgs/products/image-product-3.jpg`}
-          alt=""
-        />
-      </div>
-      <div className={`fifth ${ActiveArr[3]}`} onClick={() => alert("buka modal")}>
-        <div className="overlay"></div>
-        <img
-          src={`http://localhost:3000/imgs/products/image-product-4.jpg`}
-          alt=""
-        />
-      </div>
-    </div>
+    </>
+  );
+};
+
+const ModalImage = (v) => {
+  return (
+    <Modal
+      title="Vertically centered modal dialog"
+      centered
+      open={v.open}
+      onOk={v.onOk}
+      onCancel={v.onCancel}
+    >
+      <p>some contents...</p>
+      <p>some contents...</p>
+      <p>some contents...</p>
+    </Modal>
   );
 };

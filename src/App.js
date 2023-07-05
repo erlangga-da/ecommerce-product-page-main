@@ -1,4 +1,3 @@
-import { Gallery } from './components/Gallery';
 import { Navigation } from './components/Navigation';
 import { Product } from './components/Product';
 import './css/Index.css';
