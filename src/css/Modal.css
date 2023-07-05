@@ -1,0 +1,44 @@
+#modal {
+    display: none;
+    z-index: 10000;
+}
+#modal.show {
+    display: block;
+}
+body.active {
+    overflow: hidden;
+}
+.overlay-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    opacity: 75%;
+    position: fixed;
+}
+.modal-gallery {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-gallery svg {
+    float: right;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.modal-gallery .content {
+    width: 60%;
+    height: 60%;
+}
+.preview {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}

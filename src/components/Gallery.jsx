@@ -1,10 +1,10 @@
-import { Modal } from "antd";
 import React from "react";
 import "../css/Gallery.css";
 import { useState, useEffect } from "react";
+import { GalleryModal } from "./GalleryModal";
 
 export const Gallery = () => {
-  const [modal2Open, setModal2Open] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
   const [second, setSecond] = useState(false);
   const [third, setThird] = useState(false);
@@ -31,16 +31,24 @@ export const Gallery = () => {
     setFifth(fifth);
   };
 
-  useEffect(()=>{
-		setArray(0)
-	}, [])
+  useEffect(() => {
+    setArray(0);
+  }, []);
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <>
-      <ModalImage open={modal2Open} onOk={() => setModal2Open(false)} onCancel={() => setModal2Open(false)}/>
+      <GalleryModal
+        modalOpen={modalOpen}
+        closeModal={closeModal}
+        imageIndex={imageIndex + 1}
+      />
       <div className="gallery-product">
         <img
-          onClick={() => setModal2Open(true)}
+          onClick={() => setModalOpen(true)}
           className="first"
           src={`http://localhost:3000/imgs/products/image-product-${
             imageIndex + 1
@@ -89,21 +97,5 @@ export const Gallery = () => {
         </div>
       </div>
     </>
-  );
-};
-
-const ModalImage = (v) => {
-  return (
-    <Modal
-      title="Vertically centered modal dialog"
-      centered
-      open={v.open}
-      onOk={v.onOk}
-      onCancel={v.onCancel}
-    >
-      <p>some contents...</p>
-      <p>some contents...</p>
-      <p>some contents...</p>
-    </Modal>
   );
 };
