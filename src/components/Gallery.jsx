@@ -2,15 +2,8 @@ import React from "react";
 import "../css/Gallery.css";
 import { useState, useEffect } from "react";
 import { GalleryModal } from "./GalleryModal";
+import data from "../data/data.json";
 
-const data = {
-  ImageData : [
-    ["first", "image-product-1.jpg"],
-    ["second", "image-product-2.jpg"],
-    ["third", "image-product-3.jpg"],
-    ["fourth", "image-product-4.jpg"],
-  ]
-}
 export const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);

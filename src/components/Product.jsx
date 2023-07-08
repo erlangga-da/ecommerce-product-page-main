@@ -4,20 +4,7 @@ import MinusIcon from "../svg/icon-minus.svg";
 import plusIcon from "../svg/icon-plus.svg";
 import { useState } from "react";
 import { Gallery } from "./Gallery";
-
-const data = {
-  "id": 12345,
-  "name": "Fall Limited Edition Sneakers",
-  "description": "These low-profile sneakers are your perfect casual wear companion.Featuring a durable rubber outer sole, they’ll withstand everythingthe weather can offer.",
-  "factory": "Sneaker Company",
-  "price": 250.00,
-  "stock": 15,
-  "discount" : 50,
-  "currency": "$",
-  "available": true,
-  "thumbs": ["image-product-1-thumbnail.jpg", "image-product-2-thumbnail.jpg", "image-product-3-thumbnail.jpg", "image-product-4-thumbnail.jpg"],
-  "images": ["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"]
-};
+import data from "../data/data.json";
 
 export const Product = () => {
   const [qty, setQty] = useState(0);
@@ -25,12 +12,12 @@ export const Product = () => {
     if (qty < data.stock) {
       setQty(qty + 1);
     }
-  }
+  };
   let MinQty = () => {
-    if (qty > 0){
+    if (qty > 0) {
       setQty(qty - 1);
     }
-  }
+  };
 
   return (
     <div className="container">
@@ -47,7 +34,9 @@ export const Product = () => {
         </div>
         <div className="price-tag">
           <div className="price">
-            <h2>{`${data.currency}` + data.price*data.discount/100 + `.00`}</h2>
+            <h2>
+              {`${data.currency}` + (data.price * data.discount) / 100 + `.00`}
+            </h2>
             <span>{`${data.discount}%`}</span>
           </div>
           <s>{`${data.currency}` + data.price + `.00`}</s>

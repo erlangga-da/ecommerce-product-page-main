@@ -1,0 +1,14 @@
+{
+  "id": 8011125,
+  "profilePic": "image-avatar.png",
+  "cart": [
+    {
+      "id": 8011125,
+      "thumbnail": "image-product-1-thumbnail.jpg",
+      "name": "Fall Limited Edition Sneakers",
+      "price": 250.0,
+      "discount": 50,
+      "stock": 3
+    }
+  ]
+}
