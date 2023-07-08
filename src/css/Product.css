@@ -5,6 +5,7 @@
 }
 .product-desc {
     margin: auto 0;
+    padding-right: 60px;
 }
 #product-company {
     color: var(--main-color);

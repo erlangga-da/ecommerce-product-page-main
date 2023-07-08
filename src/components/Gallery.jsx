@@ -3,32 +3,30 @@ import "../css/Gallery.css";
 import { useState, useEffect } from "react";
 import { GalleryModal } from "./GalleryModal";
 
+const data = {
+  ImageData : [
+    ["first", "image-product-1.jpg"],
+    ["second", "image-product-2.jpg"],
+    ["third", "image-product-3.jpg"],
+    ["fourth", "image-product-4.jpg"],
+  ]
+}
 export const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-  const [second, setSecond] = useState(false);
-  const [third, setThird] = useState(false);
-  const [fourth, setFourth] = useState(false);
-  const [fifth, setFifth] = useState(false);
+  const [active, setActive] = useState([true, false, false, false]);
 
   const setArray = (target) => {
     setImageIndex(target);
-    if (target == 0) {
-      setActive(true, false, false, false);
-    } else if (target == 1) {
-      setActive(false, true, false, false);
-    } else if (target == 2) {
-      setActive(false, false, true, false);
-    } else if (target == 3) {
-      setActive(false, false, false, true);
+    if (target === 0) {
+      setActive([true, false, false, false]);
+    } else if (target === 1) {
+      setActive([false, true, false, false]);
+    } else if (target === 2) {
+      setActive([false, false, true, false]);
+    } else if (target === 3) {
+      setActive([false, false, false, true]);
     }
-  };
-
-  const setActive = (second, third, fourth, fifth) => {
-    setSecond(second);
-    setThird(third);
-    setFourth(fourth);
-    setFifth(fifth);
   };
 
   useEffect(() => {
@@ -49,52 +47,27 @@ export const Gallery = () => {
       <div className="gallery-product">
         <img
           onClick={() => setModalOpen(true)}
-          className="first"
+          className="MainImage"
           src={`http://localhost:3000/imgs/products/image-product-${
             imageIndex + 1
           }.jpg`}
           alt=""
         />
-        <div
-          className={`second ${second == true ? "active" : ""}`}
-          onClick={() => setArray(0)}
-        >
-          <div className="overlay"></div>
-          <img
-            src={`http://localhost:3000/imgs/products/image-product-1.jpg`}
-            alt=""
-          />
-        </div>
-        <div
-          className={`third ${third == true ? "active" : ""}`}
-          onClick={() => setArray(1)}
-        >
-          <div className="overlay"></div>
-          <img
-            src={`http://localhost:3000/imgs/products/image-product-2.jpg`}
-            alt=""
-          />
-        </div>
-        <div
-          className={`fourth ${fourth == true ? "active" : ""}`}
-          onClick={() => setArray(2)}
-        >
-          <div className="overlay"></div>
-          <img
-            src={`http://localhost:3000/imgs/products/image-product-3.jpg`}
-            alt=""
-          />
-        </div>
-        <div
-          className={`fifth ${fifth == true ? "active" : ""}`}
-          onClick={() => setArray(3)}
-        >
-          <div className="overlay"></div>
-          <img
-            src={`http://localhost:3000/imgs/products/image-product-4.jpg`}
-            alt=""
-          />
-        </div>
+        {/* mapping image data */}
+        {data.ImageData.map((gallery, index) => (
+          // <li key={index}>{gallery}</li>
+          <div
+            key={index}
+            className={active[index] === true ? `${gallery[0]} active` : `${gallery[0]}`}
+            onClick={() => setArray(index)}
+          >
+            <div className="overlay"></div>
+            <img
+              src={`http://localhost:3000/imgs/products/${gallery[1]}`}
+              alt=""
+            />
+          </div>
+        ))}
       </div>
     </>
   );

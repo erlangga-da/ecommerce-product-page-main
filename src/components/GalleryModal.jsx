@@ -3,8 +3,7 @@ import "../css/Modal.css";
 import { useState, useEffect } from "react";
 
 export const GalleryModal = (v) => {
-  const [imgLength, setimgLength] = useState(1);
-
+  const [imgLength, setimgLength] = useState(v.imageIndex);
   let NextImg = () => {
     if (imgLength < 4){
       setimgLength(imgLength + 1);
@@ -21,16 +20,15 @@ export const GalleryModal = (v) => {
   }
 
   useEffect(() => {
+    setimgLength(v.imageIndex);
     document.body.style.overflow = v.modalOpen ? "hidden" : "";
-
     return () => {
       document.body.style.overflow = "unset";
-      // console.log(v.modalOpen);
     };
-  }, [v.modalOpen]);
+  }, [v.modalOpen, v.imageIndex]);
+
   const closeModal = () => {
     v.closeModal();
-    // console.log(v.closeModal);
   };
   return (
     <div id="modal" className={v.modalOpen ? "show" : ""}>

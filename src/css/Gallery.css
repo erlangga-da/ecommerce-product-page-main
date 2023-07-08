@@ -1,5 +1,5 @@
 .gallery-product {
-    padding: 0px 48px;
+    padding: 0 60px;
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -8,10 +8,10 @@
         "Gambar-utama Gambar-utama Gambar-utama Gambar-utama"
         "Gambar-2 Gambar-3 Gambar-4 Gambar-5";
 }
+.first,
 .second,
 .third,
-.fourth,
-.fifth {
+.fourth {
     position: relative;
 }
 .overlay {
@@ -32,25 +32,25 @@
     border-radius: 16px;
     height: 100%;
 }
-.first{
+.MainImage{
     grid-area: Gambar-utama;
 }
-.second img{
+.first img{
     grid-area: Gambar-2;
 }
-.third img {
+.second img {
     grid-area: Gambar-3;
 }
-.fourth img{
+.third img{
     grid-area: Gambar-4;
 }
-.fifth img{
+.fourth img{
     grid-area: Gambar-5;
 }
+.first:hover .overlay,
 .second:hover .overlay,
 .third:hover .overlay,
-.fourth:hover .overlay,
-.fifth:hover .overlay{
+.fourth:hover .overlay{
     background-color: white;
     border-radius: 16px;
     opacity: 50%;
