@@ -1,14 +1,17 @@
-nav,.left-nav,
+.nav-container,.left-nav,
 ul,.right-nav, .items {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 nav {
-    /* background-color: aqua; */
     margin: 0px auto;
+    padding: 0px 100px;
+    max-width: 1200px;
+}
+.nav-container {
+    width: 100%;
     padding: 28px 0px;
-    max-width: 80%;
     border-bottom: 1px solid var(--outline);
 }
 nav #menu {

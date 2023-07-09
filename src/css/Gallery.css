@@ -1,5 +1,5 @@
 .gallery-product {
-    padding: 0 60px;
+    padding: 0 32px;
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
