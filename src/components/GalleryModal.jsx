@@ -5,19 +5,19 @@ import { useState, useEffect } from "react";
 export const GalleryModal = (v) => {
   const [imgLength, setimgLength] = useState(v.imageIndex);
   let NextImg = () => {
-    if (imgLength < 4){
+    if (imgLength < 4) {
       setimgLength(imgLength + 1);
-    }else {
+    } else {
       setimgLength(1);
     }
-  }
+  };
   let PrevImg = () => {
-    if (imgLength > 1){
+    if (imgLength > 1) {
       setimgLength(imgLength - 1);
-    }else {
+    } else {
       setimgLength(4);
     }
-  }
+  };
 
   useEffect(() => {
     setimgLength(v.imageIndex);
@@ -53,9 +53,38 @@ export const GalleryModal = (v) => {
               src={`http://localhost:3000/imgs/products/image-product-${imgLength}.jpg`}
               alt="kk"
             />
-            <button type="button" onClick={() => PrevImg()}>-</button>
-            <button type="button">{imgLength}</button>
-            <button type="button" onClick={() => NextImg()}>-</button>
+            <button
+              className="btn-prev"
+              type="button"
+              onClick={() => PrevImg()}
+            >
+              <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11 1 3 9l8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </button>
+            <button className="btn-next" type="button" onClick={() => NextImg()}>
+              <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m2 1 8 8-8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="indicator-img">
+            <button type="button">halo</button>
+            <button type="button">halo</button>
+            <button type="button">halo</button>
+            <button type="button">halo</button>
           </div>
         </div>
       </div>
