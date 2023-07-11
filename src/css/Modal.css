@@ -29,8 +29,10 @@ body.active {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.modal-gallery svg {
+.modal-gallery .btn-close {
     float: right;
+    /* background: transparent; */
+    /* border: none; */
     margin-bottom: 20px;
     cursor: pointer;
 }

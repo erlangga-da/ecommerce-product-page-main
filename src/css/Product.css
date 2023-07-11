@@ -96,4 +96,19 @@
 
 @media screen and (max-width: 1100px) {
     /* atur product responsive */
+    .container {
+        margin: 40px 0px;
+        padding: 0px 24px;
+    }
+    .content-align {
+        flex-direction: column;
+    }
+    .product-container,
+    .gallery-container {
+        max-width: 100%;
+        flex: none;
+    }
+    .product-container {
+        margin: 40px 0px;
+    }
 }

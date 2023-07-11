@@ -165,4 +165,7 @@ nav a:hover {
         width: 24px;
         height: 24px;
     }
+    .ant-popover-content {
+        margin-right: 24px;
+    }
 }

@@ -22,11 +22,15 @@ export const Product = () => {
 
   return (
     <div className="container">
-      <Row justify="space-around" align="middle">
-        <Col span={12}>
+      <Row
+        justify="space-around"
+        align="middle"
+        className="content-align"
+      >
+        <Col className="gallery-container" span={12}>
           <Gallery />
         </Col>
-        <Col span={12}>
+        <Col className="product-container" span={12}>
           <div className="product-desc">
             <div className="product-text">
               <span id="product-company">{data.factory}</span>
