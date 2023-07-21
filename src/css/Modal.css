@@ -23,6 +23,7 @@ body.active {
 .modal-gallery {
     position: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     z-index: 100;
     top: 50%;
@@ -30,13 +31,18 @@ body.active {
     transform: translate(-50%, -50%);
 }
 .modal-gallery .btn-close {
-    float: right;
-    /* background: transparent; */
-    /* border: none; */
+    background: transparent;
+    border: none;
+    margin: auto;
     margin-bottom: 20px;
+    width: 60%;
     cursor: pointer;
 }
+.btn-close #close-icon {
+    float: right;
+}
 .modal-gallery .content {
+    margin: auto;
     width: 60%;
     height: 60%;
 }
@@ -70,7 +76,7 @@ body.active {
 }
 .preview-img .btn-next,
 .preview-img .btn-prev {
-    top: 50%;
+    top: 45%;
     position: absolute;
 }
 .preview-img .btn-prev {
@@ -78,4 +84,21 @@ body.active {
 }
 .preview-img .btn-next {
     right: -28px;
+}
+.slider {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+.slider .sliders {
+    overflow: hidden;
+}
+.slider .sliders-img {
+    width: 80px;
+    border-radius: 8px;
+}
+.sliders-overlay {
+    background-color: white;
+    opacity: 60%;
 }

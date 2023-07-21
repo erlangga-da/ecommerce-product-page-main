@@ -9,16 +9,13 @@ import { Col, Row } from "antd";
 
 export const Product = () => {
   const [qty, setQty] = useState(0);
-  let PlusQty = () => {
-    if (qty < data.stock) {
+  let onChangeQty = (val) => {
+    if (val && qty < data.stock) {
       setQty(qty + 1);
+    }else if (!val && qty > 0) {
+      setQty(qty-1);
     }
-  };
-  let MinQty = () => {
-    if (qty > 0) {
-      setQty(qty - 1);
-    }
-  };
+  }
 
   return (
     <div className="container">
@@ -35,11 +32,7 @@ export const Product = () => {
             <div className="product-text">
               <span id="product-company">{data.factory}</span>
               <h1 id="product-name">{data.name}</h1>
-              <p id="product-desc">
-                These low-profile sneakers are your perfect casual wear
-                companion. Featuring a durable rubber outer sole, they’ll
-                withstand everything the weather can offer.
-              </p>
+              <p id="product-desc">{data.description}</p>
             </div>
             <div className="price-tag">
               <div className="price">
@@ -55,11 +48,11 @@ export const Product = () => {
             <Row justify="space-around" align="middle">
               <Col span={10}>
                 <div className="btn-qty">
-                  <button type="button" onClick={() => MinQty()}>
+                  <button type="button" onClick={() => onChangeQty(false)}>
                     <img src={MinusIcon} alt="" />
                   </button>
                   <p>{qty}</p>
-                  <button type="button" onClick={() => PlusQty()}>
+                  <button type="button" onClick={() => onChangeQty(true)}>
                     <img src={plusIcon} alt="" />
                   </button>
                 </div>

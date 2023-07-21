@@ -1,9 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import "../css/Header.css";
 import Logo from "../svg/logo.svg";
 import DeleteIcon from "../svg/icon-delete.svg";
 import MenuIcon from "../svg/icon-menu.svg";
-import { Popover } from "antd";
+import { Popover, Drawer } from "antd";
 import user from "../data/user.json";
 
 const content = (
@@ -44,13 +45,30 @@ const emptyCart = (
 );
 
 export const Navigation = () => {
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
     <nav>
       <div className="nav-container">
         <div className="left-nav">
-          <button id="menu" type="button">
+          <button id="menu" type="button" onClick={showDrawer}>
             <img src={MenuIcon} alt="menu" />
           </button>
+          <Drawer
+            title="Basic Drawer"
+            placement="left"
+            onClose={onClose}
+            open={open}
+          >
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Drawer>
           <img id="logo" src={Logo} alt="logo" />
           <ul>
             <li>
@@ -60,9 +78,7 @@ export const Navigation = () => {
               <a href="#">Men</a>
             </li>
             <li>
-              <a className="active" href="#">
-                Women
-              </a>
+              <a href="#">Women</a>
             </li>
             <li>
               <a href="#">About</a>

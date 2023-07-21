@@ -148,8 +148,7 @@ nav a:hover {
 
 @media screen and (max-width: 960px) {
     nav {
-        /* background-color: aqua; */
-        padding: 24px;
+        padding: 0px 24px;
         max-width: 100%;
         border: none;
     }
@@ -165,7 +164,11 @@ nav a:hover {
         width: 24px;
         height: 24px;
     }
+    .ant-popover, 
+    .ant-popover-hidden {
+        min-width: 100%;
+    }
     .ant-popover-content {
-        margin-right: 24px;
+        margin: 40px 24px;
     }
 }

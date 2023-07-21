@@ -48,7 +48,6 @@ export const Gallery = () => {
         />
         {/* mapping image data */}
         {data.ImageData.map((gallery, index) => (
-          // <li key={index}>{gallery}</li>
           <div
             key={index}
             className={active[index] === true ? `${gallery[0]} active` : `${gallery[0]}`}
