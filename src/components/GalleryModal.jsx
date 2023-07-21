@@ -19,6 +19,9 @@ export const GalleryModal = (v) => {
       setimgLength(4);
     }
   };
+  let SliderSetImg = (val) => {
+    setimgLength(val)
+  }
 
   useEffect(() => {
     setimgLength(v.imageIndex);
@@ -69,7 +72,7 @@ export const GalleryModal = (v) => {
                 <path
                   d="M11 1 3 9l8 8"
                   stroke="#1D2026"
-                  stroke-width="3"
+                  strokeWidth="3"
                   fill="none"
                   fillRule="evenodd"
                 />
@@ -84,7 +87,7 @@ export const GalleryModal = (v) => {
                 <path
                   d="m2 1 8 8-8 8"
                   stroke="#1D2026"
-                  stroke-width="3"
+                  strokeWidth="3"
                   fill="none"
                   fillRule="evenodd"
                 />
@@ -94,16 +97,16 @@ export const GalleryModal = (v) => {
           .ali
         </div>
         <div className="slider">
-          {data.ImageData.map((gallery, index) => (
-            <div key={index}className="sliders">
-              <div className="sliders-overlay"></div>
-              <img
-                className="sliders-img"
-                src={`http://localhost:3000/imgs/products/${gallery[1]}`}
-                alt="kk"
-              />
-            </div>
-          ))}
+          {data.ImageData.map((gallery, index) =>(
+              <div key={index} onClick={() => SliderSetImg(index + 1)} className={`sliders ${imgLength === (index + 1) ? "active": ""}`}>
+                <div className="sliders-overlay"></div>
+                <img
+                  className="sliders-img"
+                  src={`http://localhost:3000/imgs/products/${gallery[2]}`}
+                  alt="slider-thumb"
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>

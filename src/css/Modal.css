@@ -41,6 +41,12 @@ body.active {
 .btn-close #close-icon {
     float: right;
 }
+#close-icon path {
+    transition: .5s;
+}
+.btn-close:hover #close-icon path{
+    fill: var(--main-color);
+}
 .modal-gallery .content {
     margin: auto;
     width: 60%;
@@ -85,20 +91,37 @@ body.active {
 .preview-img .btn-next {
     right: -28px;
 }
+/* modal gallery slider */
 .slider {
     display: flex;
     justify-content: center;
     gap: 16px;
     width: 100%;
 }
-.slider .sliders {
-    overflow: hidden;
-}
 .slider .sliders-img {
     width: 80px;
     border-radius: 8px;
 }
 .sliders-overlay {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    opacity: 0%;
+}
+.sliders {
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+}
+.sliders.active {
+    border-color: var(--main-color);
+    border-radius: 10px;
+}
+.sliders.active .sliders-overlay,
+.sliders:hover .sliders-overlay {
+    transition: .5s;
+    cursor: pointer;
     background-color: white;
     opacity: 60%;
 }
