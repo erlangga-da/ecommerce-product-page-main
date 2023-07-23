@@ -55,7 +55,7 @@ export const Gallery = () => {
           >
             <div className="overlay"></div>
             <img
-              src={`http://localhost:3000/imgs/products/${gallery[1]}`}
+              src={`http://localhost:3000/imgs/products/${gallery[2]}`}
               alt=""
             />
           </div>
