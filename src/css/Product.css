@@ -112,3 +112,42 @@
         margin: 40px 0px;
     }
 }
+@media screen and (max-width: 960px) {
+    .container {
+        margin: 0px;
+        padding: 0px;
+    }
+    .product-desc {
+        padding: 0px 24px;
+    }
+    #product-name {
+        font-size: 28px;
+        line-height: 32px;
+        margin-top: 12px;
+        margin-bottom: 18px;
+    }
+    #product-company {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.68px;
+    }
+    #product-desc {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .price-tag {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .BtnGroupContainer {
+        flex-direction: column;
+    }
+    .BtnGroupContainer .BtnChild {
+        margin: 8px 0px;
+        min-width: 100%;
+    }
+    .btn-qty {
+        margin: 0;
+    }
+}

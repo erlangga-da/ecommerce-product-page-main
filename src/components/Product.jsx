@@ -74,11 +74,11 @@ export const Product = ({ sendDataToParent }) => {
   //button group
   let ButtonAct = () => {
     return (
-      <Row justify="space-around" align="middle">
-        <Col span={10}>
+      <Row justify="space-around" align="middle" className="BtnGroupContainer">
+        <Col span={10} className="BtnChild">
           <QtyBtn />
         </Col>
-        <Col span={14}>
+        <Col span={14} className="BtnChild">
           <CheckoutBtn />
         </Col>
       </Row>
