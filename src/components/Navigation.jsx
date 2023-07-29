@@ -11,7 +11,10 @@ import { Popover, Drawer, Badge } from "antd";
 const pages = ["Collections", "Men", "Women", "About", "Contact"];
 
 // cart item
-const CartItem = ({ cart }) => {
+const CartItem = ({ cart, clearDataToParent }) => {
+  let deleteCart = (id) => {
+    clearDataToParent(id);
+  }
   return (
     <>
       {cart.map((cart, index) => {
@@ -33,7 +36,7 @@ const CartItem = ({ cart }) => {
                 </p>
               </div>
             </div>
-            <button id="delete-cart" type="button">
+            <button id="delete-cart" type="button" onClick={() => deleteCart(cart.id)}>
               <img src={DeleteIcon} alt="icon-delete" />
             </button>
           </div>
@@ -55,7 +58,7 @@ const EmptyCart = () => {
   );
 };
 
-export const Navigation = ({ cartData }) => {
+export const Navigation = ({ cartData, clearDataToParent }) => {
   const [open, setOpen] = useState(false);
   const [cart, setCart] = useState(cartData);
 
@@ -105,7 +108,7 @@ export const Navigation = ({ cartData }) => {
   };
 
   // navbar right container
-  const RightNav = () => {
+  const RightNav = ({clearDataToParent}) => {
     const [BadgeCount, setBadgeCount] = useState(0);
     const totalStockQuantity = cart.map((qtyValue) => qtyValue.stock);
     useEffect(() => {
@@ -116,7 +119,7 @@ export const Navigation = ({ cartData }) => {
         <Popover
           content={
             cart.length > 0 ? (
-              <CartItem cart={cart} />
+              <CartItem cart={cart} clearDataToParent={clearDataToParent} />
             ) : (
               <EmptyCart />
             )
@@ -160,7 +163,7 @@ export const Navigation = ({ cartData }) => {
     <nav>
       <div className="nav-container">
         <LeftNav />
-        <RightNav />
+        <RightNav clearDataToParent={clearDataToParent}/>
       </div>
     </nav>
   );
