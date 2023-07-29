@@ -14,29 +14,31 @@ const pages = ["Collections", "Men", "Women", "About", "Contact"];
 const CartItem = ({ cart }) => {
   return (
     <>
-      {cart.map((cart, index) => (
-        <div className="items" key={index}>
-          <div className="product">
-            <img
-              id="thumbs"
-              src={`http://localhost:3000/imgs/products/${cart.thumbnail}`}
-              alt="thumb"
-            />
-            <div className="text">
-              <p id="title">{cart.name}</p>
-              <p id="price">
-                {`$${(cart.price * cart.discount) / 100}.00`} x {cart.stock}{" "}
-                <span>{`$${
-                  ((cart.price * cart.discount) / 100) * cart.stock
-                }.00`}</span>
-              </p>
+      {cart.map((cart, index) => {
+        return (
+          <div className="items" key={index}>
+            <div className="product">
+              <img
+                id="thumbs"
+                src={`http://localhost:3000/imgs/products/${cart.thumbnail}`}
+                alt="thumb"
+              />
+              <div className="text">
+                <p id="title">{cart.name}</p>
+                <p id="price">
+                  {`$${(cart.price * cart.discount) / 100}.00`} x {cart.stock}{" "}
+                  <span>{`$${
+                    ((cart.price * cart.discount) / 100) * cart.stock
+                  }.00`}</span>
+                </p>
+              </div>
             </div>
+            <button id="delete-cart" type="button">
+              <img src={DeleteIcon} alt="icon-delete" />
+            </button>
           </div>
-          <button id="delete-cart" type="button">
-            <img src={DeleteIcon} alt="icon-delete" />
-          </button>
-        </div>
-      ))}
+        );
+      })}
       <button className="checkout" type="button">
         Checkout
       </button>
@@ -104,14 +106,25 @@ export const Navigation = ({ cartData }) => {
 
   // navbar right container
   const RightNav = () => {
+    const [BadgeCount, setBadgeCount] = useState(0);
+    const totalStockQuantity = cart.map((qtyValue) => qtyValue.stock);
+    useEffect(() => {
+      setBadgeCount(totalStockQuantity[0]);
+    }, []);
     return (
       <div className="right-nav">
         <Popover
-          content={cart.length > 0 ? <CartItem cart={cart} /> : <EmptyCart />}
+          content={
+            cart.length > 0 ? (
+              <CartItem cart={cart} />
+            ) : (
+              <EmptyCart />
+            )
+          }
           title="Cart"
         >
           <Badge
-            count={cart.length}
+            count={BadgeCount}
             style={{
               backgroundColor: "#FF7D1B",
             }}
