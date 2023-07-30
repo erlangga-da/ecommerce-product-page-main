@@ -39,11 +39,13 @@ export const Product = ({ sendDataToParent }) => {
     let cartData = [
       {
         id: 8011125,
-        thumbnail: "image-product-1-thumbnail.jpg",
-        name: "Fall Limited Edition Sneakers",
-        price: 250.0,
-        discount: 50,
+        thumbnail: data.ImageData[0][2],
+        name: data.name,
+        price: data.price,
+        discount: data.discount,
+        priceAfter: data.price * (100 - data.discount) / 100,
         stock: qty,
+        currency: data.currency
       }
     ];
     let sendData = () => {
@@ -98,7 +100,7 @@ export const Product = ({ sendDataToParent }) => {
         <div className="price-tag">
           <div className="price">
             <h2>
-              {`${data.currency}` + (data.price * data.discount) / 100 + `.00`}
+              {`${data.currency}` + (data.price * (100 - data.discount) / 100) + `.00`}
             </h2>
             <span>{`${data.discount}%`}</span>
           </div>

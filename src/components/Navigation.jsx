@@ -12,6 +12,8 @@ const pages = ["Collections", "Men", "Women", "About", "Contact"];
 
 // cart item
 const CartItem = ({ cart, clearDataToParent }) => {
+
+  console.log(cart);
   let deleteCart = (id) => {
     clearDataToParent(id);
   }
@@ -29,9 +31,9 @@ const CartItem = ({ cart, clearDataToParent }) => {
               <div className="text">
                 <p id="title">{cart.name}</p>
                 <p id="price">
-                  {`$${(cart.price * cart.discount) / 100}.00`} x {cart.stock}{" "}
+                  {cart.currency}{cart.priceAfter}{'.00'} x {cart.stock}{" "}
                   <span>{`$${
-                    ((cart.price * cart.discount) / 100) * cart.stock
+                    cart.priceAfter * cart.stock
                   }.00`}</span>
                 </p>
               </div>
