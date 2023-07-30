@@ -1,3 +1,38 @@
+.gallery-mobile {
+    display: none;
+    position: relative;
+}
+.gallery-mobile button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-mobile button svg {
+    margin: auto;
+}
+.gallery-mobile button path {
+    transition: .5s;
+}
+.gallery-mobile button:hover path {
+    stroke: var(--main-color);
+}
+.gallery-mobile .btn-next,
+.gallery-mobile .btn-prev {
+    top: 45%;
+    position: absolute;
+}
+.gallery-mobile .btn-prev {
+    left: 16px;
+}
+.gallery-mobile .btn-next {
+    right: 16px;
+}
 .gallery-product {
     padding: 0 32px;
     display: grid;
@@ -68,20 +103,21 @@
 
 @media screen and (max-width: 960px) {
     .gallery-product {
-        padding: 0;
-        display: grid;
-        grid-gap: 0px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr auto;
-        grid-template-areas:
-            "Gambar-utama Gambar-utama Gambar-utama Gambar-utama"
-            "Gambar-2 Gambar-3 Gambar-4 Gambar-5";
-    }
-    .gallery-product img {
-        cursor: default;
-        border-radius: 0px;
+        display: none;
     }
     .first, .second, .third, .fourth {
         display: none;
+    }
+    .gallery-mobile {
+        display: block;
+    }
+    .gallery-container,
+    .gallery-mobile, 
+    .gallery-mobile img {
+        width: 100%;
+    }
+    .gallery-mobile img {
+        height: 300px;
+        object-fit: cover;
     }
 }

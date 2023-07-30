@@ -6,6 +6,7 @@ import plusIcon from "../svg/icon-plus.svg";
 import data from "../data/data.json";
 import { Col, Row } from "antd";
 import { Gallery } from "./Gallery";
+import { GalleryMobile } from "./GalleryMobile";
 
 export const Product = ({ sendDataToParent }) => {
   const [qty, setQty] = useState(0);
@@ -112,6 +113,7 @@ export const Product = ({ sendDataToParent }) => {
       <Row justify="space-around" align="middle" className="content-align">
         <Col className="gallery-container" span={12}>
           <Gallery />
+          <GalleryMobile />
         </Col>
         <Col className="product-container" span={12}>
           <ProductDesc />

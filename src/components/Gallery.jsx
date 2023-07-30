@@ -44,7 +44,7 @@ export const Gallery = () => {
           src={`http://localhost:3000/imgs/products/image-product-${
             imageIndex + 1
           }.jpg`}
-          alt=""
+          alt="gallery product"
         />
         {/* mapping image data */}
         {data.ImageData.map((gallery, index) => (

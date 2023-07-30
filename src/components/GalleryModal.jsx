@@ -5,23 +5,9 @@ import data from "../data/data.json";
 
 export const GalleryModal = (v) => {
   const [imgLength, setimgLength] = useState(v.imageIndex);
-  let NextImg = () => {
-    if (imgLength < 4) {
-      setimgLength(imgLength + 1);
-    } else {
-      setimgLength(1);
-    }
-  };
-  let PrevImg = () => {
-    if (imgLength > 1) {
-      setimgLength(imgLength - 1);
-    } else {
-      setimgLength(4);
-    }
-  };
-  let SliderSetImg = (val) => {
-    setimgLength(val)
-  }
+  let NextImg = () => imgLength < 4? setimgLength(imgLength + 1) : setimgLength(1);
+  let PrevImg = () => imgLength > 1? setimgLength(imgLength - 1) : setimgLength(4);
+  let SliderSetImg = (val) => setimgLength(val);
 
   useEffect(() => {
     setimgLength(v.imageIndex);
@@ -31,9 +17,7 @@ export const GalleryModal = (v) => {
     };
   }, [v.modalOpen, v.imageIndex]);
 
-  const closeModal = () => {
-    v.closeModal();
-  };
+  const closeModal = () => v.closeModal();
   return (
     <div id="modal" className={v.modalOpen ? "show" : ""}>
       <div className="overlay-modal"></div>

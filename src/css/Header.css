@@ -19,6 +19,7 @@ nav #menu {
     border: none;
     padding: 0;
     background: transparent;
+    height: 15px;
 }
 nav ul {
     list-style-type: none;
@@ -170,5 +171,10 @@ nav a:hover {
     }
     .ant-popover-content {
         margin: 40px 24px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .items .text {
+        max-width: 130px;
     }
 }
