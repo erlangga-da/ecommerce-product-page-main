@@ -15,15 +15,31 @@ nav {
     border-bottom: 1px solid var(--outline);
 }
 nav #menu {
+    cursor: pointer;
     display: none;
     border: none;
     padding: 0;
     background: transparent;
     height: 15px;
 }
-nav ul {
+.ant-drawer-header {
+    padding: 24px !important;
+    border-bottom: 0 !important;
+}
+nav ul,
+.ant-drawer-body ul {
     list-style-type: none;
     padding: 0;
+}
+.ant-drawer-body ul {
+    display: block;
+}
+.ant-drawer-body ul li a {
+    display: block;
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 nav ul li {
     margin-right: 32px;
@@ -78,6 +94,7 @@ nav a:hover {
     padding: 18px 0px;
     font-size: 16px;
     font-weight: 600;
+    font-family: 'Kumbh Sans', sans-serif;
     background-color: var(--main-color);
     color: white;
     cursor: pointer;
@@ -113,6 +130,7 @@ nav a:hover {
     color: var(--grey);
     font-size: 14px;
     font-weight: 400;
+    font-family: 'Kumbh Sans', sans-serif;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -131,6 +149,7 @@ nav a:hover {
     padding: 24px !important;
     font-weight: 700 !important;
     border-bottom: 1px solid var(--outline);
+    font-family: 'Kumbh Sans', sans-serif;
 }
 .ant-popover-content {
     margin-top: 32px;
@@ -145,6 +164,7 @@ nav a:hover {
     color: var(--grey);
     font-weight: 600;
     font-size: 16px;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
 @media screen and (max-width: 960px) {

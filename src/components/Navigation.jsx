@@ -12,11 +12,10 @@ const pages = ["Collections", "Men", "Women", "About", "Contact"];
 
 // cart item
 const CartItem = ({ cart, clearDataToParent }) => {
-
   console.log(cart);
   let deleteCart = (id) => {
     clearDataToParent(id);
-  }
+  };
   return (
     <>
       {cart.map((cart, index) => {
@@ -31,14 +30,18 @@ const CartItem = ({ cart, clearDataToParent }) => {
               <div className="text">
                 <p id="title">{cart.name}</p>
                 <p id="price">
-                  {cart.currency}{cart.priceAfter}{'.00'} x {cart.stock}{" "}
-                  <span>{`$${
-                    cart.priceAfter * cart.stock
-                  }.00`}</span>
+                  {cart.currency}
+                  {cart.priceAfter}
+                  {".00"} x {cart.stock}{" "}
+                  <span>{`$${cart.priceAfter * cart.stock}.00`}</span>
                 </p>
               </div>
             </div>
-            <button id="delete-cart" type="button" onClick={() => deleteCart(cart.id)}>
+            <button
+              id="delete-cart"
+              type="button"
+              onClick={() => deleteCart(cart.id)}
+            >
               <img src={DeleteIcon} alt="icon-delete" />
             </button>
           </div>
@@ -72,23 +75,33 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
   const MobileDrawer = () => {
     return (
       <Drawer
-        title="Basic Drawer"
+        title=""
         placement="left"
         onClose={() => DrawerSet(false)}
         open={open}
+        closeIcon={
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#69707D"
+              fillRule="evenodd"
+            />
+          </svg>
+        }
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <ul>
+          <PagesLink />
+        </ul>
       </Drawer>
     );
   };
 
   // render links
+  //eslint-disable-next-line
   const PagesLink = () => {
     return pages.map((page, index) => (
       <li key={index}>
-        <a href="#">{page}</a>
+        <a href="http://localhost:3000/">{page}</a>
       </li>
     ));
   };
@@ -110,12 +123,12 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
   };
 
   // navbar right container
-  const RightNav = ({clearDataToParent}) => {
+  const RightNav = ({ clearDataToParent }) => {
     const [BadgeCount, setBadgeCount] = useState(0);
     const totalStockQuantity = cart.map((qtyValue) => qtyValue.stock);
     useEffect(() => {
       setBadgeCount(totalStockQuantity[0]);
-    }, []);
+    }, [totalStockQuantity]);
     return (
       <div className="right-nav">
         <Popover
@@ -159,13 +172,13 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
 
   useEffect(() => {
     setCart(cartData);
-  }, [cart, RightNav]);
+  }, [cartData, cart]);
 
   return (
     <nav>
       <div className="nav-container">
         <LeftNav />
-        <RightNav clearDataToParent={clearDataToParent}/>
+        <RightNav clearDataToParent={clearDataToParent} />
       </div>
     </nav>
   );

@@ -6,7 +6,7 @@
     --grey: #777777;
     --outline: #EBEBEB;
     --smoke: #F7F8FD;
-    font-family: 'Kumbh Sans', sans-serif;  
+    font-family: 'Kumbh Sans', sans-serif !important;  
 }
 
 html,body {
