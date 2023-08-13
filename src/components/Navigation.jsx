@@ -79,6 +79,7 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
         placement="left"
         onClose={() => DrawerSet(false)}
         open={open}
+        width="250"
         closeIcon={
           <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
             <path

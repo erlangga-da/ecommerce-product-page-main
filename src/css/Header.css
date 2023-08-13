@@ -33,6 +33,10 @@ nav ul,
 }
 .ant-drawer-body ul {
     display: block;
+    margin: 0;
+}
+.ant-drawer-body ul li {
+    margin-bottom: 24px;
 }
 .ant-drawer-body ul li a {
     display: block;
