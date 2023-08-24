@@ -41,7 +41,7 @@ export const Gallery = () => {
         <img
           onClick={() => setModalOpen(true)}
           className="MainImage"
-          src={`http://localhost:3000/imgs/products/image-product-${
+          src={`https://ecommerce-product-page-main-ppb1.vercel.app/imgs/products/image-product-${
             imageIndex + 1
           }.jpg`}
           alt="gallery product"
@@ -55,7 +55,7 @@ export const Gallery = () => {
           >
             <div className="overlay"></div>
             <img
-              src={`http://localhost:3000/imgs/products/${gallery[2]}`}
+              src={`https://ecommerce-product-page-main-ppb1.vercel.app/imgs/products/${gallery[2]}`}
               alt=""
             />
           </div>

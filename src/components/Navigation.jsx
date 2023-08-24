@@ -24,7 +24,7 @@ const CartItem = ({ cart, clearDataToParent }) => {
             <div className="product">
               <img
                 id="thumbs"
-                src={`http://localhost:3000/imgs/products/${cart.thumbnail}`}
+                src={`https://ecommerce-product-page-main-ppb1.vercel.app/imgs/products/${cart.thumbnail}`}
                 alt="thumb"
               />
               <div className="text">
@@ -102,7 +102,7 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
   const PagesLink = () => {
     return pages.map((page, index) => (
       <li key={index}>
-        <a href="http://localhost:3000/">{page}</a>
+        <a href="https://ecommerce-product-page-main-ppb1.vercel.app/">{page}</a>
       </li>
     ));
   };
@@ -164,7 +164,7 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
         </Popover>
         <img
           id="profile"
-          src={`http://localhost:3000/imgs/profiles/${user.profilePic}`}
+          src={`https://ecommerce-product-page-main-ppb1.vercel.app/imgs/profiles/${user.profilePic}`}
           alt="profile"
         />
       </div>
