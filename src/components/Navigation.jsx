@@ -164,7 +164,7 @@ export const Navigation = ({ cartData, clearDataToParent }) => {
         </Popover>
         <img
           id="profile"
-          src={`https://ecommerce-product-page-main-ppb1.vercel.app/imgs/profiles/${user.profilePic}`}
+          src={`/imgs/profiles/${user.profilePic}`}
           alt="profile"
         />
       </div>
